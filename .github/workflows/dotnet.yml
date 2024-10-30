@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore --configfile nuget.config --verbosity n
+      run: dotnet restore --verbosity n
     - name: Build
       run: dotnet build -c Release --no-restore /p:Version=1.5.$GITHUB_RUN_NUMBER
     - name: Test
