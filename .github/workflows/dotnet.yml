@@ -1,0 +1,31 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore --configfile nuget.config --verbosity n
+    - name: Build
+      run: dotnet build -c Release --no-restore /p:Version=1.5.$GITHUB_RUN_NUMBER
+    - name: Test
+      run: dotnet test -c Release --no-build --verbosity normal
+    - name: Pack
+      run: dotnet pack -c Release --no-build -p:PackageVersion=1.5.$GITHUB_RUN_NUMBER
+    - name: Set nuget credentials to GITHUB_TOKEN for push
+      run: dotnet nuget update source github --username USERNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --source "https://nuget.pkg.github.com/actlogimark/index.json"
+    - name: Push
+      run: dotnet nuget push **/*.nupkg --source "github" --api-key "${{ secrets.GITHUB_TOKEN }}"

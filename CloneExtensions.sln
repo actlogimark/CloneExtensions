@@ -1,13 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35323.107
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloneExtensions", "src\CloneExtensions\CloneExtensions.csproj", "{87214314-753C-4DA0-B244-1C7B25354AA8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloneExtensions.UnitTests", "src\CloneExtensions.UnitTests\CloneExtensions.UnitTests.csproj", "{FFC4A5C4-46EE-4D9D-A94B-8F365F7971D5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloneExtensions.Benchmarks", "src\CloneExtensions.Benchmarks\CloneExtensions.Benchmarks.csproj", "{9B571247-FBBC-456A-A334-085B17751897}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{75690DF6-C314-4DE2-9EF9-8B37C71A171D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{91F1C4CB-AD96-4D5A-8B3B-F08C97D2AA05}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{125DC00B-F799-43F8-8B8C-FFF0C0A4D807}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +42,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{91F1C4CB-AD96-4D5A-8B3B-F08C97D2AA05} = {75690DF6-C314-4DE2-9EF9-8B37C71A171D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A8AEA7D-AFAE-4587-BBDF-00A9FB26917F}
